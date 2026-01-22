@@ -1,0 +1,31 @@
+{
+  "name": "allshop-backend",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "db:migrate:local": "wrangler d1 migrations apply BASEKART_AI_SHOP --local",
+    "db:migrate:remote": "wrangler d1 migrations apply BASEKART_AI_SHOP --remote"
+  },
+  "dependencies": {
+    "@google/genai": "^1.37.0",
+    "@neondatabase/serverless": "^1.0.2",
+    "@openrouter/sdk": "^0.2.9",
+    "better-sqlite3": "^12.6.2",
+    "drizzle-orm": "^0.45.0",
+    "hono": "^4.10.7",
+    "paapi5-nodejs-sdk-5": "^2.0.1",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251202.0",
+    "@types/node": "^24.10.1",
+    "drizzle-kit": "^0.31.8",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.53.0"
+  }
+}

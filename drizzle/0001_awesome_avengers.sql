@@ -1,0 +1,1 @@
+ALTER TABLE `stores` RENAME COLUMN "airtable_table" TO "airtable_product_table";

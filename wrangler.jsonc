@@ -1,0 +1,49 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "basekart-ai-shop",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-12-02",
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "STORE_DO",
+        "class_name": "StoreDO"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "StoreDO"
+      ]
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "BASEKART_AI_SHOP_KV",
+      "id": "ed44a97858224033987484f8424474eb"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BASEKART_AI_SHOP_R2",
+      "bucket_name": "basekart-ai-shop"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "BASEKART_AI_SHOP",
+      "database_name": "basekart-ai-shop-db",
+      "database_id": "ed7f4a88-7680-4910-88b7-d56968fed06a",
+      "migrations_dir": "drizzle"
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true
+    }
+  }
+}
