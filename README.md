@@ -37,11 +37,11 @@ Returns rich, detailed product data including pricing, policy, and reasoning con
 ## 🛠 Internal Management
 
 ### Register a Store
-`POST /stores/register`  
+`POST /stores/start`  
 Registers a store in D1 and initializes its sync Durable Object.
 
 ```bash
-curl -X POST https://api.basekart.shop/stores/register \
+curl -X POST https://api.basekart.shop/stores/start \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <internal_token>" \
   -d '{

@@ -1,9 +1,5 @@
 import { Hono, Context } from "hono";
 import { EnvBindings } from "../bindings";
-import { getDB } from "../db";
-import { stores } from "../db/schema";
-import { eq } from "drizzle-orm";
-import { PolicyService } from "../services/policy";
 import { SearchService } from "../services/search";
 
 const publicRoutes = new Hono<{ Bindings: EnvBindings }>();
