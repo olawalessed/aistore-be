@@ -51,21 +51,14 @@ export const authMiddleware = async (c: AuthContext, next: Next) => {
 
     // Get session from cookie
     const cookieHeader = c.req.header("Cookie");
-    console.log('🔐 Auth Middleware - Cookie header:', cookieHeader);
     let sessionCookie = '';
     
     if (cookieHeader) {
         const cookies = cookieHeader.split(';').map(cookie => cookie.trim());
-        console.log('🔐 Auth Middleware - All cookies:', cookies);
         const sessionCookieObj = cookies.find(cookie => cookie.startsWith('session='));
         if (sessionCookieObj) {
             sessionCookie = sessionCookieObj.substring('session='.length);
-            console.log('🔐 Auth Middleware - Found session cookie, length:', sessionCookie.length);
-        } else {
-            console.log('🔐 Auth Middleware - No session cookie found');
         }
-    } else {
-        console.log('🔐 Auth Middleware - No Cookie header found');
     }
     
     if (!sessionCookie) {

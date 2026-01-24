@@ -1,0 +1,55 @@
+name: Deploy Backend Workers
+
+on:
+  push:
+    branches: [main, preview]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  # -----------------------
+  # Preview Deployments
+  # -----------------------
+  deploy-preview:
+    name: Deploy Workers (Preview)
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'pull_request' || github.ref == 'refs/heads/preview'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      - name: Deploy (preview)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          command: deploy --env preview
+
+  # -----------------------
+  # Production Deployments
+  # -----------------------
+  deploy-production:
+    name: Deploy Workers (Production)
+    runs-on: ubuntu-latest
+    if: |
+      github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      - name: Deploy (production)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}

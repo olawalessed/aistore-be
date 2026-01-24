@@ -15,6 +15,7 @@
     "@google/genai": "^1.37.0",
     "@neondatabase/serverless": "^1.0.2",
     "@openrouter/sdk": "^0.2.9",
+    "@upstash/redis": "^1.36.1",
     "better-sqlite3": "^12.6.2",
     "drizzle-orm": "^0.45.0",
     "hono": "^4.10.7",

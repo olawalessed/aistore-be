@@ -36,6 +36,27 @@
       "when": 1769089867184,
       "tag": "0004_black_leader",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1769173099007,
+      "tag": "0005_real_jackpot",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1769210984139,
+      "tag": "0006_tidy_stark_industries",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1769213738221,
+      "tag": "0007_lame_iron_monger",
+      "breakpoints": true
     }
   ]
 }

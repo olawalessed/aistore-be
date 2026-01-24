@@ -1,0 +1,1 @@
+ALTER TABLE `stores` ADD `last_manual_sync_at` integer;
